@@ -13,3 +13,6 @@
 [submodule "NeuralNet_Core"]
 	path = NeuralNet_Core
 	url = https://github.com/TThaan/NeuralNet_Core.git
+[submodule "MachineLearningDataProvider"]
+	path = MachineLearningDataProvider
+	url = https://github.com/TThaan/MachineLearningDataProvider.git
