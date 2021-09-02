@@ -1,3 +1,6 @@
 [submodule "CustomLogger"]
 	path = CustomLogger
 	url = https://github.com/TThaan/CustomLogger.git
+[submodule "NeuralNet_CLT"]
+	path = NeuralNet_CLT
+	url = https://github.com/TThaan/NeuralNet_CLT.git
