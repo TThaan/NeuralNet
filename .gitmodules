@@ -13,3 +13,6 @@
 [submodule "MachineLearningDataProvider"]
 	path = MachineLearningDataProvider
 	url = https://github.com/TThaan/MachineLearningDataProvider.git
+[submodule "ObjectFlattener"]
+	path = ObjectFlattener
+	url = https://github.com/TThaan/ObjectFlattener.git
