@@ -1,0 +1,6 @@
+{
+  "Epochs": 10,
+  "LearningRate": 0.1,
+  "LearningRateChange": 0.9,
+  "CostType": "SquaredMeanError"
+}

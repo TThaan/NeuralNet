@@ -1,0 +1,133 @@
+﻿<Window x:Class="NeuralNet_UI.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sd="clr-namespace:NeuralNet_UI.SampleDataViewModels"
+        xmlns:views="clr-namespace:NeuralNet_UI.Views"
+        mc:Ignorable="d"
+        
+        Title="MainWindow"
+        WindowState="Maximized"        
+        d:Width="1600" d:Height="900">
+    
+    <!--WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow" ResizeMode="CanResize"-->
+    
+    <d:Window.DataContext>
+        <sd:MainWindowVMSampleData/>
+    </d:Window.DataContext>
+
+    <Window.Resources>
+        <DataTemplate x:Key="NetParametersView">
+            <views:NetParametersView/>
+        </DataTemplate>
+        <DataTemplate x:Key="NetView">
+            <views:NetView/>
+        </DataTemplate>
+        <DataTemplate x:Key="PredictView">
+            <views:PredictView/>
+        </DataTemplate>
+        <DataTemplate x:Key="StatusView">
+            <views:StatusView/>
+        </DataTemplate>
+        <DataTemplate x:Key="StartStopView">
+            <views:StartStopView/>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid Name="thisRootElement">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".25*"/>
+            <RowDefinition Height="1.75*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Nav Bar -->
+
+        <Menu Name="ImportExportMenu" Grid.Column="0" Height="40" Grid.Row="0" HorizontalAlignment="Left" Width="150">
+            <MenuItem Width="150" Height="40" Margin="0" Padding="0">
+                <MenuItem.Header>
+                    <Label Content="Im/Export" Width="150" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                </MenuItem.Header>
+
+                <Label Content="Load Net Parameters" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="{Binding LoadNetParametersCommand}"/>
+                    </Label.InputBindings>
+                </Label>
+                <Label Content="Save Net Parameters" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="{Binding SaveNetParametersCommand}"/>
+                    </Label.InputBindings>
+                </Label>
+                <Label Content="Load Trainer Parameters" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="{Binding LoadTrainerParametersCommand}"/>
+                    </Label.InputBindings>
+                </Label>
+                <Label Content="Save Trainer Parameters" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="{Binding SaveTrainerParametersCommand}"/>
+                    </Label.InputBindings>
+                </Label>
+                <Separator/>
+                <Label Content="Load Initialized Net" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="{Binding LoadInitializedNetCommand}"/>
+                    </Label.InputBindings>
+                </Label>
+                <Label Content="Save Initialized Net" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="{Binding SaveInitializedNetCommand}"/>
+                    </Label.InputBindings>
+                </Label>
+                <MenuItem IsCheckable="True" IsChecked="{Binding SessionContext.IsLogged}" StaysOpenOnClick="True" HorizontalContentAlignment="Right">
+                    <MenuItem.Header>
+                        <Label Content="Log Training (slow!)" Width="150" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </MenuItem.Header>
+                </MenuItem>
+                <Label Content="LogName" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="{Binding EnterLogNameCommand}"/>
+                    </Label.InputBindings>
+                </Label>
+                
+            </MenuItem>
+        </Menu>
+
+        <Button Name="ExitButton" Grid.Column="1" HorizontalAlignment="Right" Width="25" Content="X" Command="{Binding ExitCommand}"/>
+        
+        <!-- Sub Views -->
+        
+        <ContentControl Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+                        Name="NetParametersCC"
+                        Content="{Binding Path=NetParametersVM}"
+                        ContentTemplate="{StaticResource NetParametersView}"/>
+
+        <ContentControl Grid.Column="0" Grid.Row="2"
+                        Name="NetCC"
+                        Content="{Binding Path=NetVM}"
+                        ContentTemplate="{StaticResource NetView}"/>
+
+        <ContentControl Grid.Column="1" Grid.Row="2"
+                        Name="PredictCC"
+                        Content="{Binding Path=PredictVM}"
+                        ContentTemplate="{StaticResource PredictView}"/>
+
+        <ContentControl Grid.Column="0" Grid.Row="3"
+                        Name="StatusCC"
+                        Content="{Binding Path=StatusVM}"
+                        ContentTemplate="{StaticResource StatusView}"/>
+
+        <ContentControl Grid.Column="1" Grid.Row="3" Margin="-1, -1, 0, 0"
+                        Name="StartStopCC"
+                        Content="{Binding Path=StartStopVM}"
+                        ContentTemplate="{StaticResource StartStopView}"/>
+    </Grid>
+</Window>

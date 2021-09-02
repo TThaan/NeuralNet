@@ -1,0 +1,50 @@
+{
+  "LayerParametersCollection": [
+    {
+      "Id": 0,
+      "NeuronsPerLayer": 4,
+      "WeightMin": -1.0,
+      "WeightMax": 1.0,
+      "BiasMin": 0.0,
+      "BiasMax": 0.0,
+      "ActivationType": "NullActivator"
+    },
+    {
+      "Id": 1,
+      "NeuronsPerLayer": 4,
+      "WeightMin": -1.0,
+      "WeightMax": 1.0,
+      "BiasMin": 0.0,
+      "BiasMax": 0.0,
+      "ActivationType": "Tanh"
+    },
+    {
+      "Id": 2,
+      "NeuronsPerLayer": 6,
+      "WeightMin": -1.0,
+      "WeightMax": 1.0,
+      "BiasMin": 0.0,
+      "BiasMax": 0.0,
+      "ActivationType": "Tanh"
+    },
+    {
+      "Id": 3,
+      "NeuronsPerLayer": 9,
+      "WeightMin": -1.0,
+      "WeightMax": 1.0,
+      "BiasMin": 0.0,
+      "BiasMax": 0.0,
+      "ActivationType": "LeakyReLU"
+    },
+    {
+      "Id": 4,
+      "NeuronsPerLayer": 9,
+      "WeightMin": -1.0,
+      "WeightMax": 1.0,
+      "BiasMin": 0.0,
+      "BiasMax": 0.0,
+      "ActivationType": "Tanh"
+    }
+  ],
+  "WeightInitType": "Xavier"
+}

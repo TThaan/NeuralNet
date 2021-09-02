@@ -1,0 +1,107 @@
+﻿<UserControl x:Class="NeuralNet_UI.Views.PredictView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:sd="clr-namespace:NeuralNet_UI.SampleDataViewModels"
+             xmlns:conv="clr-namespace:NeuralNet_UI.Converters"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d">
+
+    <d:UserControl.DataContext>
+        <sd:PredictVMSampleData/>
+    </d:UserControl.DataContext>
+
+    <UserControl.Resources>
+        <conv:TestConverter x:Key="TestConverter"/>
+    </UserControl.Resources>
+
+    <Border Background="White" Name="thisRootElement">
+        <Grid Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Input -->
+
+            <TextBlock Text="Input" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center" 
+                       FontSize="20" FontWeight="Bold"/>
+            <ListBox ItemsSource="{Binding Input}" Name="lb_Input"
+                     Grid.Row="1" HorizontalAlignment="Center"
+                     BorderBrush="White">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBox Text="{Binding Path=Content}" FontSize="15">
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Return" Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=DataContext.UnfocusCommand}" CommandParameter="{Binding ElementName=thisRootElement}"/>
+                            </TextBox.InputBindings>
+                            <!--<i:Interaction.Triggers>
+                                <i:EventTrigger EventName="LostFocus">
+                                    <i:InvokeCommandAction
+                                        Command="{Binding UpdateInputCommand}"
+                                        CommandParameter="{Binding}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>-->
+                        </TextBox>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <!-- Target -->
+
+            <!--<StackPanel Grid.Row="2" Grid.Column="0">
+                <TextBlock Text="Target:" TextAlignment="Center"/>
+                <TextBlock Text="{Binding Target}"/>
+            </StackPanel>-->
+            
+            <!-- Output -->
+
+            <TextBlock Text="Output" 
+                       Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                       FontSize="20" FontWeight="Bold"/>
+            <ListBox ItemsSource="{Binding Output}" Name="lb_Output"
+                     Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"
+                     BorderBrush="White">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=Content}" FontSize="15">
+                            <TextBlock.InputBindings>
+                                <KeyBinding Key="Return" Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=DataContext.UnfocusCommand}" CommandParameter="{Binding ElementName=thisRootElement}"/>
+                            </TextBlock.InputBindings>
+                        </TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <!-- Prediction -->
+
+            <!--<StackPanel Grid.Row="2" Grid.Column="1">
+                <TextBlock Text="Prediction:" TextAlignment="Center"/>
+                <TextBlock Text="{Binding Prediction}"/>
+            </StackPanel>-->
+
+            <!-- Predict Button -->
+            
+            <Viewbox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Stretch="Uniform">
+                <Button Content="Predict" 
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="50,10,50,10" Padding="5"
+                        Background="White" BorderBrush="Black" BorderThickness="2" 
+                        FontWeight="Bold" FontSize="25"                        
+                        Command="{Binding PredictCommand}" CommandParameter="{Binding ElementName=lb_Input}"/>
+            </Viewbox>
+            
+            <!-- Debug -->
+        
+            <!--<Button Grid.Row="3" Grid.ColumnSpan="2" FontSize="16"
+                    Content="{Binding ElementName=DebuggedObject, Path=CommandTarget, Converter={StaticResource TestConverter}}"/>-->
+        </Grid>
+    </Border>
+</UserControl>

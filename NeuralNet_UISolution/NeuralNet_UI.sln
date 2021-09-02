@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeuralNet_UI", "NeuralNet_UI\NeuralNet_UI.csproj", "{9AEB7285-1C74-448E-8FE6-B8FC84BE0555}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9AEB7285-1C74-448E-8FE6-B8FC84BE0555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AEB7285-1C74-448E-8FE6-B8FC84BE0555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AEB7285-1C74-448E-8FE6-B8FC84BE0555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AEB7285-1C74-448E-8FE6-B8FC84BE0555}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA0E71FF-DEFB-44C2-A1EB-1D42043A261F}
+	EndGlobalSection
+EndGlobal

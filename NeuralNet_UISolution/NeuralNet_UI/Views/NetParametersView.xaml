@@ -1,0 +1,141 @@
+﻿<UserControl x:Class="NeuralNet_UI.Views.NetParametersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:views="clr-namespace:NeuralNet_UI.Views"
+             xmlns:sd="clr-namespace:NeuralNet_UI.SampleDataViewModels"
+             xmlns:conv="clr-namespace:NeuralNet_UI.Converters"
+             mc:Ignorable="d" >
+
+    <d:UserControl.DataContext>
+        <sd:NetParametersVMSampleData/>
+    </d:UserControl.DataContext>
+
+    <UserControl.Resources>
+        <conv:LayerParametersToLayerParametersVMConverter x:Key="LayerParametersToLayerParametersVMConverter"/>
+        <DataTemplate x:Key="LayerParametersView">
+            <views:LayerParametersView/>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid Name="thisRootElement">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Column 1: 'Layer Parameters' -->
+        
+        <Grid Grid.Column="0">
+            
+            <ListBox VerticalContentAlignment="Top" 
+                     ItemsSource="{Binding LayerParametersCollection}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel IsItemsHost="True" Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <ContentControl ContentTemplate="{StaticResource LayerParametersView}">
+                            <ContentControl.Content>
+                                <MultiBinding Converter="{StaticResource LayerParametersToLayerParametersVMConverter}">
+                                    <Binding/>
+                                    <Binding ElementName="thisRootElement" Path="DataContext.LayerParametersVMFactory"/>
+                                </MultiBinding>
+                            </ContentControl.Content>
+                        </ContentControl>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>            
+            
+        </Grid>
+
+        <!-- Column 2: Net-/Trainer Parameters' and 'Import/Export -->
+
+        <Viewbox Grid.Column="1" Stretch="Fill">
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <!-- CostTypes -->
+
+                <Border Grid.Row="0" HorizontalAlignment="Stretch" BorderBrush="LightGray" BorderThickness="1">
+                    <StackPanel>
+                        <TextBlock Text="CostType" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                   Margin="0,5,0,0"/>
+                        <ComboBox Margin="0,5,0,0"
+                                  ItemsSource="{Binding CostTypes}" SelectedItem="{Binding CostType}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- WeightInitTypes -->
+
+                <Border Grid.Row="1" BorderBrush="LightGray" BorderThickness="1">
+                    <StackPanel>
+                        <TextBlock Text="WeightInitType" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                   Margin="0,5,0,0"/>
+                        <ComboBox Margin="0,5,0,0"
+                                  ItemsSource="{Binding WeightInitTypes}" SelectedItem="{Binding WeightInitType}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Learning Rate & Epoch Count Padding="75, 0" -->
+
+                <Border Grid.Row="2" BorderBrush="LightGray" BorderThickness="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Learning Rate" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                       Padding="40, 0, 40, 0" Margin="0,5,0,5"/>
+                            <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="50" Margin="0,0,0,10"
+                                 Text="{Binding Path=LearningRate}">
+                                <TextBox.InputBindings>
+                                    <KeyBinding Key="Return" Command="{Binding UnfocusCommand}" CommandParameter="{Binding ElementName=thisRootElement}"/>
+                                </TextBox.InputBindings>
+                            </TextBox>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="Change per Epoch" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                       Padding="40, 0, 40, 0" Margin="0,5,0,5"/>
+                            <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="50" Margin="0,0,0,10"
+                                 Text="{Binding Path=LearningRateChange}">
+                                <TextBox.InputBindings>
+                                    <KeyBinding Key="Return" Command="{Binding UnfocusCommand}" CommandParameter="{Binding ElementName=thisRootElement}"/>
+                                </TextBox.InputBindings>
+                            </TextBox>
+                        </StackPanel>
+
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="3" BorderBrush="LightGray" BorderThickness="1">
+                    <StackPanel>
+                        <TextBlock Text="Amount of Epochs" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                   Margin="0,5,0,5"/>
+                        <TextBox MinWidth="50" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                 Margin="0,0,0,5"
+                                 Text="{Binding Path=EpochCount}">
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Return" Command="{Binding UnfocusCommand}" CommandParameter="{Binding ElementName=thisRootElement}"/>
+                            </TextBox.InputBindings>
+                        </TextBox>
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+        </Viewbox>
+        
+    </Grid>
+</UserControl>
