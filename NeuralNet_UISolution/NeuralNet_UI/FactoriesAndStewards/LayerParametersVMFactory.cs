@@ -1,6 +1,6 @@
 ﻿using NeuralNet_UI.ViewModels;
 using Autofac;
-using NeuralNetBuilder.FactoriesAndParameters;
+using NeuralNet_Core.FactoriesAndParameters;
 
 namespace NeuralNet_UI.FactoriesAndStewards
 {

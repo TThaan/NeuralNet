@@ -1,6 +1,6 @@
-﻿using DeepLearningDataProvider;
-using NeuralNetBuilder;
-using NeuralNetBuilder.FactoriesAndParameters;
+﻿using MachineLearningDataProvider;
+using NeuralNet_Core;
+using NeuralNet_Core.FactoriesAndParameters;
 using System.Collections.ObjectModel;
 
 namespace NeuralNet_UI

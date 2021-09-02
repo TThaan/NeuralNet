@@ -1,10 +1,6 @@
 ﻿using NeuralNet_UI.ViewModels;
-using NeuralNetBuilder;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Data;
 
 namespace NeuralNet_UI.Converters

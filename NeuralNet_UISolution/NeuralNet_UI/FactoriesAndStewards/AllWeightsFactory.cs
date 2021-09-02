@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using NeuralNetBuilder;
+using NeuralNet_Core;
 using System.Collections.Generic;
 using System.Linq;
 

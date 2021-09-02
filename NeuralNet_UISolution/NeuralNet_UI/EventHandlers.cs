@@ -1,5 +1,4 @@
-﻿using DeepLearningDataProvider;
-using NeuralNetBuilder.FactoriesAndParameters;
+﻿using NeuralNet_Core.FactoriesAndParameters;
 using System.Threading.Tasks;
 
 namespace NeuralNet_UI

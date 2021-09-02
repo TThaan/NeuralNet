@@ -1,5 +1,5 @@
 ﻿using NeuralNet_UI.Commands;
-using NeuralNetBuilder;
+using NeuralNet_Core;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;

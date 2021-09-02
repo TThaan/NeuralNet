@@ -1,8 +1,6 @@
-﻿using NeuralNet_UI.Commands.Async;
-using NeuralNetBuilder;
+﻿using NeuralNet_Core;
+using NeuralNet_UI.Commands.Async;
 using System;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;

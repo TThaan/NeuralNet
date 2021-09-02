@@ -1,5 +1,5 @@
-﻿using NeuralNetBuilder;
-using NeuralNetBuilder.FactoriesAndParameters;
+﻿using NeuralNet_Core;
+using NeuralNet_Core.FactoriesAndParameters;
 using System;
 using System.Collections.Generic;
 

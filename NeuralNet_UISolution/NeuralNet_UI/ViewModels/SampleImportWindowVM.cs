@@ -1,6 +1,6 @@
 ﻿using NeuralNet_UI.Commands.Async;
 using NeuralNet_UI.Views;
-using DeepLearningDataProvider.SampleSetHelpers;
+using MachineLearningDataProvider.SampleSetHelpers;
 using Microsoft.Win32;
 using System;
 using System.Linq;

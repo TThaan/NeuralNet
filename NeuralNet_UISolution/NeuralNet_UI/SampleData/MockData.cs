@@ -1,7 +1,6 @@
-﻿using NeuralNet_UI.FactoriesAndStewards;
-using Autofac;
-using NeuralNetBuilder;
-using System;
+﻿using Autofac;
+using NeuralNet_Core;
+using NeuralNet_UI.FactoriesAndStewards;
 using System.Threading.Tasks;
 
 namespace NeuralNet_UI.SampleData

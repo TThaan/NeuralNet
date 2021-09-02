@@ -1,6 +1,6 @@
 ﻿using NeuralNet_UI.FactoriesAndStewards;
 using NeuralNet_UI.ViewModels;
-using NeuralNetBuilder.FactoriesAndParameters;
+using NeuralNet_Core.FactoriesAndParameters;
 using System;
 using System.Globalization;
 using System.Windows.Data;

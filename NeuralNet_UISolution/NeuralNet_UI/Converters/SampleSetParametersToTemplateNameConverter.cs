@@ -1,4 +1,4 @@
-﻿using DeepLearningDataProvider;
+﻿using MachineLearningDataProvider;
 using System;
 using System.Collections.Generic;
 using System.Globalization;

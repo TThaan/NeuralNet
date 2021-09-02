@@ -1,4 +1,4 @@
-﻿using NeuralNetBuilder.FactoriesAndParameters;
+﻿using NeuralNet_Core.FactoriesAndParameters;
 using System;
 
 namespace NeuralNet_UI

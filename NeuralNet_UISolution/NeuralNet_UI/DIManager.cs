@@ -3,8 +3,8 @@ using NeuralNet_UI.ViewModels;
 using NeuralNet_UI.Views;
 using Autofac;
 using Autofac.Features.AttributeFilters;
-using NeuralNetBuilder;
-using NeuralNetBuilder.FactoriesAndParameters;
+using NeuralNet_Core;
+using NeuralNet_Core.FactoriesAndParameters;
 using IContainer = Autofac.IContainer;
 
 namespace NeuralNet_UI

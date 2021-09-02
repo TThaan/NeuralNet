@@ -1,5 +1,5 @@
 ﻿using NeuralNet_UI.ViewModels;
-using DeepLearningDataProvider.SampleSetHelpers;
+using MachineLearningDataProvider.SampleSetHelpers;
 using System;
 using System.IO;
 using System.Threading.Tasks;

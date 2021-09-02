@@ -1,6 +1,6 @@
 ﻿using NeuralNet_UI.Commands.Async;
 using NeuralNet_UI.FactoriesAndStewards;
-using NeuralNetBuilder;
+using NeuralNet_Core;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;

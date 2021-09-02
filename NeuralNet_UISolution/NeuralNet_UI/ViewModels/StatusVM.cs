@@ -1,4 +1,4 @@
-﻿using NeuralNetBuilder;
+﻿using NeuralNet_Core;
 using System.Windows;
 
 namespace NeuralNet_UI.ViewModels

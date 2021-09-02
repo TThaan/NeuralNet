@@ -1,5 +1,5 @@
 ﻿using NeuralNet_UI.FactoriesAndStewards;
-using NeuralNetBuilder;
+using NeuralNet_Core;
 using System;
 using System.Collections.Generic;
 

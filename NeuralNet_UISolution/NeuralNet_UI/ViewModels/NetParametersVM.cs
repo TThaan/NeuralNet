@@ -1,8 +1,8 @@
 ﻿using NeuralNet_UI.Commands;
 using NeuralNet_UI.Commands.Async;
 using NeuralNet_UI.FactoriesAndStewards;
-using NeuralNetBuilder;
-using NeuralNetBuilder.FactoriesAndParameters;
+using NeuralNet_Core;
+using NeuralNet_Core.FactoriesAndParameters;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
