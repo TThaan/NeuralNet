@@ -10,3 +10,6 @@
 [submodule "ObjectFlattener"]
 	path = ObjectFlattener
 	url = https://github.com/TThaan/ObjectFlattener.git
+[submodule "NeuralNet_Core"]
+	path = NeuralNet_Core
+	url = https://github.com/TThaan/NeuralNet_Core.git
